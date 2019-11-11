@@ -1,4 +1,6 @@
-#
+# http://www.pythonchallenge.com/pc/def/map.html
+
+
 # print (ord('a'))
 # print (ord('.'))
 #
