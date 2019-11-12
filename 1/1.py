@@ -7,9 +7,9 @@
 # print (ord('A'))
 # print (ord('z'))
 # print (ord(' '))
-#
+#hej
 
-with open("inputUrl") as f:
+with open("input") as f:
     for line in f:
        for ch in line:
            asciiNo = ord(ch)
