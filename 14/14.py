@@ -52,9 +52,9 @@ for n in range(50): # n = 0..49
     rightstart = n+1
     rightend = 100-n
     bottomstart = 100-n-2
-    bottomend = n-1
+    bottomend = n
     leftstart = 100-n-1
-    leftend = n+1
+    leftend = n
 
     # top loop
     # # print("top ", n)
