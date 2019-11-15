@@ -4,13 +4,18 @@
 from PIL import Image
 
 img = Image.open('mozart.gif')
-pix = img.load() # pix is a list of (R,G,B,A), which can be accessed by pix[x,y]
+piximg = img.load() # pix is a list of (R,G,B,A), which can be accessed by pix[x,y]
+print(piximg[1,1])
 (width, hight) = img.size
+mode = img.mode
+print(mode)
 print("w/h",width,hight)
 
-# Build new image
-newimg = Image.new('RGB', (width * 2,hight))
 
+# Build new image
+newimg = Image.new(img.mode, (width, hight))
+# dur to orgignal image have a Image.palette define, I copy this to the new image to get the colors right
+newimg.putpalette(img.getpalette())
 
 # for i in range(0, hight):
 #     for f in range(0, width-7):
@@ -27,43 +32,18 @@ newimg = Image.new('RGB', (width * 2,hight))
 offset = []
 for h in range(0, hight):
     for of in range(0, width-7):
-        # print(f)
         pixel1 = img.getpixel((of, h))
-        pixel2 = img.getpixel((of+2, h))
-        pixel3 = img.getpixel((of+3, h))
-        # print(pixel1, pixel2, pixel3)
-        if (pixel1 == 195 and pixel2 == 195 and pixel3 == 195):
+        pixel2 = img.getpixel((of+1, h))
+        pixel3 = img.getpixel((of+1, h))
+        if pixel1 == 195 and pixel2 == 195 and pixel3 == 195:
             offset.append(of)
-            print("found")
             for w in range(0,width):
-                pixel = img.getpixel((w,h))
-                newimg.putpixel((w + of, h), pixel)
-                print(pixel)
+                pixel = piximg[w,h]
+                newimg.putpixel(((w-of)%width, h), pixel)
+                # print(pixel)
             break
 
 
-newimg.save('newImg.gif')
+newimg.save('newImg.gif', format='GIF')
 
 
-
-
-
- # for i in range():
-#     for j in range(100):
-#         pixel = img.getpixel((i*100+j,0))
-#         newimg.putpixel((i,j), pixel)
-#
-# newimg.save('newImg.jpg')
-#
-# 249
-# 195
-# BoooM!!
-# 195
-# BoooM!!
-# 195
-# BoooM!!
-# 195
-# BoooM!!
-# 195
-# BoooM!!
-# 252
