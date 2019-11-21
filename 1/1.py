@@ -9,7 +9,7 @@
 # print (ord(' '))
 #hej
 
-with open("1/input") as f:
+with open("input") as f:
     for line in f:
        for ch in line:
            asciiNo = ord(ch)

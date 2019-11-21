@@ -6,6 +6,7 @@ import bz2
 import os
 import urllib
 from urllib.parse import unquote_to_bytes
+# from 13 import Phonebook
 
 from urllib.request import urlopen
 import re
@@ -62,7 +63,8 @@ print(bz2.decompress(res).decode())
 # is it the 26th already? call his father and inform him that "the flowers are on their way". he'll understand.
 
 
-
+# I give up for now:
+# https://www.hackingnote.com/en/python-challenge-solutions/level-17
 
 
 
@@ -80,3 +82,5 @@ print(bz2.decompress(res).decode())
 # print(mode)
 # print("w/h",width,hight)
 # print(img.info)
+
+Phonebook('Bert')
